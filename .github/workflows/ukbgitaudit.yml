@@ -33,15 +33,19 @@ jobs:
           python-version: "3.12"
       - name: Install Poetry
         run: |
+          python -m pip install --upgrade pip
           python -m pip install poetry
       - name: Install UKB Git Audit Tool
         run: |
-          git clone https://github.com/UK-Biobank/UKB-Git-Audit-Tool.git
-          cd UKB-Git-Audit-Tool
+          git clone https://github.com/UK-Biobank/UKB-Git-Audit-Tool.git /tmp/ukb-audit
+          cd /tmp/ukb-audit
           poetry install
       - name: Run audit
         run: |
-          poetry run ukb_git_audit_tool --repo-path . --output audit_report.json
+          cd /tmp/ukb-audit
+          poetry run ukb-git-audit-tool \
+            --repo-path $GITHUB_WORKSPACE \
+            --output $GITHUB_WORKSPACE/audit_report.json
       - name: Upload audit report
         uses: actions/upload-artifact@v4
         with:
