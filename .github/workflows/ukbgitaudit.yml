@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set up Python
@@ -53,7 +53,7 @@ jobs:
             $REPO_URL \
             --output_fpath $GITHUB_WORKSPACE/audit_report.csv
       - name: Upload audit report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ukb-audit-report
-          path: audit_report_${REPO_NAME}.csv
+          path: "audit_report_${REPO_NAME}.csv"
