@@ -63,17 +63,15 @@ jobs:
           path: |
             /tmp/ukb-audit/${{ env.REPO_NAME }}/audit_report_${{ env.REPO_NAME }}.csv
             /tmp/ukb-audit/${{ env.REPO_NAME }}/eid_frequency_${{ env.REPO_NAME }}.csv
-     - name: Validate audit report
-       run: |
-         EXPECTED="Message,No findings to report."
-         FILE="audit_report_${REPO_NAME}.csv"
-         echo "Generated file:"
-         cat "$FILE"
-         ACTUAL=$(tr '\n' ',' < "$FILE" | sed 's/,$//')
-         echo "Expected: $EXPECTED"
-         echo "Actual:   $ACTUAL"
-         if [ "$ACTUAL" != "$EXPECTED" ]; then
-           echo "Audit report does not match expected content."
-           exit 1
-         fi
-         echo "Audit report is valid."
+      - name: Validate audit report
+        run: |
+          EXPECTED="Message,No findings to report."
+          FILE="audit_report_${REPO_NAME}.csv"
+          ACTUAL=$(tr '\n' ',' < "$FILE" | sed 's/,$//')
+          echo "Expected: $EXPECTED"
+          echo "Actual:   $ACTUAL"
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "Audit report does not match expected content."
+            exit 1
+          fi
+          echo "Audit report is valid."
