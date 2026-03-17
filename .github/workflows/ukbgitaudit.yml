@@ -43,6 +43,9 @@ jobs:
       - name: Set repository URL variable
         run: |
           echo "REPO_URL=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git" >> $GITHUB_ENV
+      - name: Set repo name
+        run: |
+          echo "REPO_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
       - name: Run audit
         run: |
           cd /tmp/ukb-audit
@@ -53,4 +56,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ukb-audit-report
-          path: $GITHUB_WORKSPACE/audit_report.csv
+          path: audit_report_${REPO_NAME}.csv
