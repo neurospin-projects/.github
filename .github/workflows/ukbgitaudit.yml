@@ -47,7 +47,7 @@ jobs:
         run: |
           cd /tmp/ukb-audit
           poetry run python src/git_audit.py \
-            --git-url $REPO_URL \
+            $REPO_URL \
             --output_fpath $GITHUB_WORKSPACE/audit_report.json
       - name: Upload audit report
         uses: actions/upload-artifact@v4
