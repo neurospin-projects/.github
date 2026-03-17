@@ -65,8 +65,8 @@ jobs:
             /tmp/ukb-audit/${{ env.REPO_NAME }}/eid_frequency_${{ env.REPO_NAME }}.csv
       - name: Validate audit report
         run: |
-          EXPECTED="Message,No findings to report."
-          FILE="audit_report_${REPO_NAME}.csv"
+          EXPECTED="eid,count"
+          FILE="/tmp/ukb-audit/${{ env.REPO_NAME }}/eid_freqeuncy_${REPO_NAME}.csv"
           ACTUAL=$(tr '\n' ',' < "$FILE" | sed 's/,$//')
           echo "Expected: $EXPECTED"
           echo "Actual:   $ACTUAL"
