@@ -60,4 +60,6 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ukb-audit-report
-          path: /tmp/ukb-audit/${REPO_NAME}/audit_report_${REPO_NAME}.csv
+          path: |
+            /tmp/ukb-audit/${{ env.REPO_NAME }}/audit_report_${{ env.REPO_NAME }}}.csv
+            /tmp/ukb-audit/${{ env.REPO_NAME }}/eid_frequency_${{ env.REPO_NAME }}.csv
