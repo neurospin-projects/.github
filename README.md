@@ -35,6 +35,6 @@ All contributions may adhere to the following style guides:
 ## UKB project
 
 If your project processes UK Biobank (UKB) data, you must follow the instructions provided in the *UKB Code Repository Training* course.
-You should also enable a GitHub Action that automatically checks your repository for potential data leaks using the [UKB‑Git‑Audit‑Tool](https://github.com/UK-Biobank/UKB-Git-Audit-Tool). To do this, copy the [YAML configuration file](https://github.com/neurospin-projects/guidelines/blob/main/.github/workflows/ukbgitaudit.md) available in the project guidelines.
+You should also enable a GitHub Action that automatically checks your repository for potential data leaks using the [UKB‑Git‑Audit‑Tool](https://github.com/UK-Biobank/UKB-Git-Audit-Tool). To do this, copy the [YAML configuration file](https://github.com/neurospin-projects/guidelines/blob/main/.github/workflows/ukbgitaudit.yml) available in the project guidelines.
 Add this file to your repository and ensure that the continuous‑integration workflow runs on every commit or pull request. This helps detect any accidental exposure of sensitive UKB data as early as possible.
 
