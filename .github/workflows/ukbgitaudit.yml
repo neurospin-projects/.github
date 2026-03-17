@@ -56,10 +56,17 @@ jobs:
         run: |
           cd /tmp/ukb-audit/${REPO_NAME}
           ls -al
+      - name: Upload audit report
+        uses: actions/upload-artifact@v6
+        with:
+          name: ukb-audit-report
+          path: |
+            /tmp/ukb-audit/${{ env.REPO_NAME }}/audit_report_${{ env.REPO_NAME }}.csv
+            /tmp/ukb-audit/${{ env.REPO_NAME }}/eid_frequency_${{ env.REPO_NAME }}.csv
       - name: Validate audit report
         run: |
           EXPECTED="eid,count"
-          FILE="/tmp/ukb-audit/${{ env.REPO_NAME }}/eid_freqeuncy_${REPO_NAME}.csv"
+          FILE="/tmp/ukb-audit/${{ env.REPO_NAME }}/eid_frequency_${REPO_NAME}.csv"
           ACTUAL=$(tr '\n' ',' < "$FILE" | sed 's/,$//')
           echo "Expected: $EXPECTED"
           echo "Actual: $ACTUAL"
@@ -68,10 +75,3 @@ jobs:
             exit 1
           fi
           echo "Audit report is valid."
-      - name: Upload audit report
-        uses: actions/upload-artifact@v6
-        with:
-          name: ukb-audit-report
-          path: |
-            /tmp/ukb-audit/${{ env.REPO_NAME }}/audit_report_${{ env.REPO_NAME }}.csv
-            /tmp/ukb-audit/${{ env.REPO_NAME }}/eid_frequency_${{ env.REPO_NAME }}.csv
