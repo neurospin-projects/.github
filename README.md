@@ -9,8 +9,9 @@ If you want to put a "star" on a forked project, do it on the original repositor
 #### Table Of Contents
 
 1. [Introduction](#introduction)
-3. [How Can I Contribute?](#how-can-i-contribute)
-5. [Style Guide](#style-guide)
+2. [How Can I Contribute?](#how-can-i-contribute)
+3. [Style Guide](#style-guide)
+4. [UKB project](#ukb-project)
 
 ## Introduction
 
@@ -30,3 +31,10 @@ All contributions may adhere to the following style guides:
 4. All codes should adhere to [PEP8](https://www.python.org/dev/peps/pep-0008/) standards.
 5. Docstrings need to be provided for all new modules, methods and classes. These should adhere to [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) standards.
 6. When in doubt look at the existing code for inspiration.
+
+## UKB project
+
+If your project processes UK Biobank (UKB) data, you must follow the instructions provided in the *UKB Code Repository Training* course.
+You should also enable a GitHub Action that automatically checks your repository for potential data leaks using the [UKB‑Git‑Audit‑Tool](https://github.com/UK-Biobank/UKB-Git-Audit-Tool). To do this, copy the [YAML configuration file](https://github.com/neurospin-projects/guidelines/blob/main/.github/workflows/ukbgitaudit.md) available in the project guidelines.
+Add this file to your repository and ensure that the continuous‑integration workflow runs on every commit or pull request. This helps detect any accidental exposure of sensitive UKB data as early as possible.
+

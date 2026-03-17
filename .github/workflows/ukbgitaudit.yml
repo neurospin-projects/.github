@@ -1,0 +1,45 @@
+---
+# Workflow to audit Git repositories for potential exposure of UK Biobank data
+#
+# To run this check locally from the repository folder:
+#
+# .. code-block:: bash
+#
+#   $ ukb_git_audit_tool --repo-path . --output audit_report.json
+###
+name: "Audit[ukb_git_audit_tool]"
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  audit:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install UKB Git Audit Tool
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --progress-bar off .
+      - name: Run audit
+        run: |
+          ukb_git_audit_tool --repo-path . --output audit_report.json
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ukb-audit-report
+          path: audit_report.json
