@@ -1,3 +1,5 @@
+[![Audit[ukb_git_audit_tool]](https://github.com/neurospin-projects/guidelines/actions/workflows/ukbgitaudit.yml/badge.svg)](https://github.com/neurospin-projects/guidelines/actions/workflows/ukbgitaudit.yml)
+
 # Contributing to NeuroSpin research projects
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
