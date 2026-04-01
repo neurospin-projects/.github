@@ -1,42 +1,12 @@
 [![Audit[ukb_git_audit_tool]](https://github.com/neurospin-projects/guidelines/actions/workflows/ukbgitaudit.yml/badge.svg)](https://github.com/neurospin-projects/guidelines/actions/workflows/ukbgitaudit.yml)
 
-# Contributing to NeuroSpin research projects
+# NeuroSpin research projects
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
-The following is a set of guidelines for contributing to NeuroSpin research projects and its packages, which are hosted in the [neurospin-projects Organization](https://github.com/neurospin-projects) on GitHub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
-For the moment only ML or DL projects are approved.
 If you want to put a "star" on a forked project, do it on the original repository to improve its visibility.
 
 #### Table Of Contents
 
-1. [Introduction](#introduction)
-2. [How Can I Contribute?](#how-can-i-contribute)
-3. [Style Guide](#style-guide)
-4. [UKB project](#ukb-project)
-
-## Introduction
-
-The [neurospin-projects Organization](https://github.com/neurospin-projects) was created to probe reproducible research by providing a place to share the code and data of your research projects. There are two basic reasons to be concerned about making your research reproducible. The first is to show evidence of the correctness of our results. The second reason to aspire to reproducibility is to enable others to make use of our methods and results. The following sections present some guidelines on how to contribute by submiting your research code and data.
-
-## How Can I Contribute?
-
-Nothing could be simpler, just make a request by email to create a new repository specifying the name of your project or ask to fork an existing project to one of the organization managers.
-
-## Style Guide
-
-All contributions may adhere to the following style guides:
-
-1. All new codes should be compatible with Python 3.6 or higher.
-2. All codes should contain a [requirements file](https://pip.pypa.io/en/stable/cli/pip_install/#requirement-specifiers) that specifies the project dependencies.
-3. All repositories should contain a [README file](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-readmes) to tell other people why your project is useful, what they can do with your project, and how they can use it.
-4. All codes should adhere to [PEP8](https://www.python.org/dev/peps/pep-0008/) standards.
-5. Docstrings need to be provided for all new modules, methods and classes. These should adhere to [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) standards.
-6. When in doubt look at the existing code for inspiration.
-
-## UKB project
-
-If your project processes UK Biobank (UKB) data, you must follow the instructions provided in the *UKB Code Repository Training* course.
-You should also enable a GitHub Action that automatically checks your repository for potential data leaks using the [UKB‑Git‑Audit‑Tool](https://github.com/UK-Biobank/UKB-Git-Audit-Tool). To do this, copy the [YAML configuration file](https://github.com/neurospin-projects/guidelines/blob/main/.github/workflows/ukbgitaudit.yml) available in the project guidelines.
-Add this file to your repository and ensure that the continuous‑integration workflow runs on every commit or pull request. This helps detect any accidental exposure of sensitive UKB data as early as possible.
-
+1. [Contribute](https://github.com/neurospin-projects/.github/blob/main/CONTRIBUTE.md)
+2. [Code of Conduct](https://github.com/neurospin-projects/.github/blob/main/CODE_OF_CONDUCT.md)
